@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Леоненко Дарья — Резюме</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="header">
+        <div class="title">
+          <h1 class="name">Леоненко Дарья</h1>
+          <p class="role">Дизайнер</p>
+        </div>
+      </header>
+
+      <section class="intro">
+        <div class="intro__text">
+          <p>
+            Увлекаюсь различными творческими направлениями, такими как дизайн, музыка, танцы и игры. Люблю путешествовать и познавать новые культуры. В свободное время занимаюсь спортом и читаю книги. В будущем планирую стать дизайнером игр.
+          </p>
+        </div>
+        <figure class="intro__photo">
+          <img src="/images/profile.jpeg" alt="Profile" />
+        </figure>
+        <div class="intro__contacts">
+          <div class="contact-block">
+            <div class="label">@reallygreatsite</div>
+          </div>
+          <div class="contact-block">
+            <div class="label">Номер</div>
+            <div class="value">+7 911 344-96-76</div>
+          </div>
+          <div class="contact-block">
+            <div class="label">Адрес</div>
+            <div class="value">Санкт-Петербург</div>
+          </div>
+        </div>
+      </section>
+      <section class="work-portfolio">
+      <section class="portfolio">
+        <h2 class="section-title">Портфолио</h2>
+        <div class="slider" id="slider">
+          <div class="slides">
+            <div class="slide is-active">
+              <img src="/images/p1.jpg" alt="Работа 1" />
+            </div>
+            <div class="slide">
+              <img src="/images/p2.png" alt="Работа 2" />
+            </div>
+            <div class="slide">
+              <img src="/images/p3.png" alt="Работа 3" />
+            </div>
+          </div>
+          <div class="dots" id="slider-dots" aria-label="Carousel Pagination"></div>
+        </div>
+      </section>
+      <section class="work">
+        <h2 class="section-title">Опыт работы</h2>
+        <div class="work__grid">
+          <article class="job">
+            <h3 class="job__title">Фриланс | 2024–2025</h3>
+            <div class="job__role">Веб-дизайн</div>
+            <p class="job__desc">Создала полный дизайн веб-сайта — от концепции до адаптивной верстки под мобильные и десктопные платформы. Позже расширила продуктовую экосистему, разработав интерфейс Telegram-приложения.</p>
+          </article>
+        </div>
+      </section>
+      </section>
+
+      <section class="lower">
+        <div class="col languages">
+          <h2 class="section-title">Языки</h2>
+          <ul class="ratings">
+            <li>
+              <span>Русский</span>
+              <span class="dots" data-score="5"></span>
+            </li>
+            <li>
+              <span>Английский</span>
+              <span class="dots" data-score="4"></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col skills">
+          <h2 class="section-title">Навыки</h2>
+          <ul class="bullets">
+            <li>Креативность</li>
+            <li>Критическое мышление</li>
+            <li>Problem solving</li>
+            <li>Собранность</li>
+            <li>Ответственность</li>
+          </ul>
+        </div>
+
+        <div class="col education">
+          <h2 class="section-title">Образование</h2>
+          <div class="edu-item">
+            <div class="edu-name">СПБГУПТД</div>
+            <div class="edu-meta">Прикладная информатика в дизайне</div>
+            <div class="edu-years">2022–2026</div>
+          </div>
+      </section>
+
+      <section class="footer-grid">
+        <div class="col reference">
+          <h2 class="section-title">Контакты</h2>
+          <div class="ref-name">Леоненко Дарья — студент</div>
+          <div class="ref-email">hello@reallygreatsite.com</div>
+          <div class="ref-phone">+7 911 344 96 76</div>
+        </div>
+        <div class="col awards">
+          <h2 class="section-title">Достижения</h2>
+          <div class="award-item">
+            <div class="award-title">Русский медвежонок</div>
+            <div class="award-meta">2013</div>
+            <p>Заняла 3 место по школе в Русском медвежонке</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p>Этот сайт создан с помощью Cursor и ИИ GPT‑5 за 40 минут.</p>
+    </footer>
+    <script>
+      (function(){
+        const slider = document.getElementById('slider');
+        if(!slider) return;
+        const slidesContainer = slider.querySelector('.slides');
+        const slides = Array.from(slidesContainer.querySelectorAll('.slide'));
+        const dotsContainer = document.getElementById('slider-dots');
+        let index = 0;
+        const durationMs = 3500;
+
+        function go(to){
+          index = (to + slides.length) % slides.length;
+          slides.forEach((s,i)=>{ s.classList.toggle('is-active', i===index); });
+          // Move track so the active slide is centered in view
+          slidesContainer.style.transform = 'translateX(' + (-index * 100) + '%)';
+          if(dotsContainer){
+            Array.from(dotsContainer.children).forEach((d,i)=>{
+              d.classList.toggle('is-active', i===index);
+            });
+          }
+        }
+
+        // dots
+        slides.forEach((_,i)=>{
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'dot' + (i===0 ? ' is-active' : '');
+          b.setAttribute('aria-label','Go to slide ' + (i+1));
+          b.addEventListener('click',()=>{ go(i); restart(); });
+          dotsContainer.appendChild(b);
+        });
+
+        let timer = setInterval(()=> go(index+1), durationMs);
+        function restart(){
+          clearInterval(timer);
+          timer = setInterval(()=> go(index+1), durationMs);
+        }
+
+        // Pause on hover for accessibility
+        slider.addEventListener('mouseenter', ()=> clearInterval(timer));
+        slider.addEventListener('mouseleave', restart);
+      })();
+    </script>
+  </body>
+</html>

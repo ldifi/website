@@ -1,0 +1,76 @@
+:root{--page-bg:#efece4;--ink:#0a0a0a;--muted:#5a5a5a;--rule:#1f1f1f;--gap:28px}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--page-bg)}
+
+.page{max-width:1024px;margin:0 auto;padding:42px 36px 64px}
+
+.header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px}
+.name{font-family:"Bodoni Moda", Georgia, "Times New Roman", serif;font-weight:500;font-size:104px;line-height:0.9;margin:0}
+.role{margin:10px 0 0;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;font-size:14px}
+.date{font-size:14px;color:var(--muted)}
+
+.intro{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:var(--gap);align-items:start;margin:20px 0 32px}
+.intro__text p{margin:0;line-height:1.7}
+.intro__photo{margin:0}
+.intro__photo img{width:100%;height:auto;display:block}
+.intro__contacts{display:flex;flex-direction:column;gap:18px}
+.contact-block{border-top:2px solid var(--rule);padding-top:10px}
+.contact-block .label{font-weight:700;text-transform:uppercase;font-size:13px}
+.contact-block .value{color:var(--muted);margin-top:6px}
+
+.section-title{font-family:"Bodoni Moda", Georgia, serif;font-size:28px;letter-spacing:0.02em;margin:0 0 12px}
+.invisible{visibility:hidden}
+
+.work{margin-top:8px}
+.work__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.job__title{font-weight:700;margin:0 0 4px}
+.job__role{font-style:italic;color:var(--muted);margin-bottom:8px}
+.job__desc{margin:0;color:#2a2a2a;line-height:1.6}
+
+.work-portfolio{display:grid;grid-template-columns:2fr 1fr;gap:var(--gap);align-items:start;margin-top:16px}
+.work-portfolio .work{order:1}
+.work-portfolio .portfolio{order:2}
+.portfolio{margin:0}
+.slider{position:relative;overflow:hidden;border-radius:8px}
+.slider .slides{display:grid;grid-auto-flow:column;grid-auto-columns:100%;transition:transform .6s ease}
+.slider .slide{position:relative;opacity:.0;transition:opacity .6s ease}
+.slider .slide.is-active{opacity:1}
+.slider img{width:100%;height:500px;object-fit:contain;background:#e9e6df;display:block}
+.slider .dots{display:flex;gap:8px;justify-content:center;margin-top:10px}
+.slider .dot{width:8px;height:8px;border-radius:50%;background:#c8c5be;border:0;cursor:pointer}
+.slider .dot.is-active{background:#111}
+
+.lower{display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--gap);margin-top:28px}
+.col{min-width:0}
+
+.ratings{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+.ratings li{display:flex;align-items:center;justify-content:space-between;gap:12px}
+/* simple dot visualization via pseudo content */
+.ratings li span.dots{display:grid;grid-auto-flow:column;gap:10px}
+.ratings li:nth-child(1) .dots::before{content:"● ● ● ● ●"}
+.ratings li:nth-child(2) .dots::before{content:"● ● ● ○ ○"}
+.ratings li:nth-child(3) .dots::before{content:"● ● ○ ○ ○"}
+.ratings .dots::before{letter-spacing:2px}
+
+.bullets{margin:0;padding-left:18px;line-height:1.8}
+
+.education .edu-item{display:grid;grid-template-columns:1fr auto;gap:6px 12px;padding:10px 0;border-bottom:1px solid #d3d0c9}
+.education .edu-name{font-weight:600}
+.education .edu-meta{color:var(--muted)}
+.education .edu-years{grid-column:2/3;color:#222;font-weight:600}
+
+.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--gap);margin-top:28px}
+.ref-name{font-weight:700}
+.ref-email,.ref-phone{color:var(--muted)}
+.award-title{font-weight:700}
+.award-meta{color:var(--muted);margin-bottom:6px}
+
+.site-footer{max-width:1024px;margin:24px auto 32px;padding:0 36px;color:var(--muted);font-size:13px;text-align:center}
+
+@media (max-width: 980px){
+  .name{font-size:72px}
+  .intro{grid-template-columns:1fr;gap:20px}
+  .work-portfolio{grid-template-columns:1fr}
+  .work__grid,.lower,.footer-grid{grid-template-columns:1fr}
+}
