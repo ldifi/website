@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратная связь</title>
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+    <style>
+        body {
+            font-family: "Inter", sans-serif;
+            background: #e5e9f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 420px;
+            background: #e5e9f0;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 
+                10px 10px 25px #cbd1db,
+                -10px -10px 25px #ffffff;
+            animation: fadeIn 0.6s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2e3440;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #4c566a;
+        }
+
+        input, textarea {
+            width: 100%;
+            margin: 10px 0 20px;
+            padding: 12px 15px;
+            font-size: 15px;
+            border: none;
+            border-radius: 15px;
+            outline: none;
+            background: #e5e9f0;
+            box-shadow: 
+                inset 6px 6px 10px #cbd1db,
+                inset -6px -6px 10px #ffffff;
+            transition: all 0.2s ease;
+        }
+
+        input:focus, textarea:focus {
+            box-shadow: 
+                inset 4px 4px 6px #cbd1db,
+                inset -4px -4px 6px #ffffff;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #5e81ac, #81a1c1);
+            color: white;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            box-shadow: 0 7px 20px rgba(94, 129, 172, 0.4);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(94, 129, 172, 0.55);
+        }
+
+        .status {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: 600;
+            color: #3b4252;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="form-container">
+    <h2>Свяжитесь с нами</h2>
+
+    <form id="feedback-form">
+        <label>Имя *</label>
+        <input type="text" name="user_name" required>
+
+        <label>Email *</label>
+        <input type="email" name="user_email" required>
+
+        <label>Телефон</label>
+        <input type="tel" name="user_phone">
+
+        <label>Тема *</label>
+        <input type="text" name="topic" required>
+
+        <label>Сообщение *</label>
+        <textarea name="message" rows="4" required></textarea>
+
+        <button type="submit">Отправить</button>
+        <div id="status" class="status"></div>
+    </form>
+</div>
+
+<script>
+    emailjs.init("bhk2JocEf2dV0cvs4"); // 🔑 вставь свой public key
+
+    document.getElementById("feedback-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        const status = document.getElementById("status");
+        status.textContent = "Отправка...";
+
+        emailjs.sendForm(
+            "service_an5nd4d",
+            "template_uepw1wn",
+            this
+        ).then(() => {
+            status.textContent = "Сообщение успешно отправлено!";
+            this.reset();
+        }, (error) => {
+            status.textContent = "Ошибка отправки!";
+            console.error(error);
+        });
+    });
+</script>
+
+</body>
+</html>
