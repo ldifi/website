@@ -1,173 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Леоненко Дарья — Резюме</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <main class="page">
-      <header class="header">
-        <div class="title">
-          <h1 class="name">Леоненко Дарья</h1>
-          <p class="role">Дизайнер</p>
-        </div>
-      </header>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратная связь</title>
 
-      <section class="intro">
-        <div class="intro__text">
-          <p>
-            Увлекаюсь различными творческими направлениями, такими как дизайн, музыка, танцы и игры. Люблю путешествовать и познавать новые культуры. В свободное время занимаюсь спортом и читаю книги. В будущем планирую стать дизайнером игр.
-          </p>
-        </div>
-        <figure class="intro__photo">
-          <img src="/images/profile.jpeg" alt="Profile" />
-        </figure>
-        <div class="intro__contacts">
-          <div class="contact-block">
-            <div class="label">@reallygreatsite</div>
-          </div>
-          <div class="contact-block">
-            <div class="label">Номер</div>
-            <div class="value">+7 911 344-96-76</div>
-          </div>
-          <div class="contact-block">
-            <div class="label">Адрес</div>
-            <div class="value">Санкт-Петербург</div>
-          </div>
-        </div>
-      </section>
-      <section class="work-portfolio">
-      <section class="portfolio">
-        <h2 class="section-title">Портфолио</h2>
-        <div class="slider" id="slider">
-          <div class="slides">
-            <div class="slide is-active">
-              <img src="/images/p1.jpg" alt="Работа 1" />
-            </div>
-            <div class="slide">
-              <img src="/images/p2.png" alt="Работа 2" />
-            </div>
-            <div class="slide">
-              <img src="/images/p3.png" alt="Работа 3" />
-            </div>
-          </div>
-          <div class="dots" id="slider-dots" aria-label="Carousel Pagination"></div>
-        </div>
-      </section>
-      <section class="work">
-        <h2 class="section-title">Опыт работы</h2>
-        <div class="work__grid">
-          <article class="job">
-            <h3 class="job__title">Фриланс | 2024–2025</h3>
-            <div class="job__role">Веб-дизайн</div>
-            <p class="job__desc">Создала полный дизайн веб-сайта — от концепции до адаптивной верстки под мобильные и десктопные платформы. Позже расширила продуктовую экосистему, разработав интерфейс Telegram-приложения.</p>
-          </article>
-        </div>
-      </section>
-      </section>
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-      <section class="lower">
-        <div class="col languages">
-          <h2 class="section-title">Языки</h2>
-          <ul class="ratings">
-            <li>
-              <span>Русский</span>
-              <span class="dots" data-score="5"></span>
-            </li>
-            <li>
-              <span>Английский</span>
-              <span class="dots" data-score="4"></span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="col skills">
-          <h2 class="section-title">Навыки</h2>
-          <ul class="bullets">
-            <li>Креативность</li>
-            <li>Критическое мышление</li>
-            <li>Problem solving</li>
-            <li>Собранность</li>
-            <li>Ответственность</li>
-          </ul>
-        </div>
-
-        <div class="col education">
-          <h2 class="section-title">Образование</h2>
-          <div class="edu-item">
-            <div class="edu-name">СПБГУПТД</div>
-            <div class="edu-meta">Прикладная информатика в дизайне</div>
-            <div class="edu-years">2022–2026</div>
-          </div>
-      </section>
-
-      <section class="footer-grid">
-        <div class="col reference">
-          <h2 class="section-title">Контакты</h2>
-          <div class="ref-name">Леоненко Дарья — студент</div>
-          <div class="ref-email">hello@reallygreatsite.com</div>
-          <div class="ref-phone">+7 911 344 96 76</div>
-        </div>
-        <div class="col awards">
-          <h2 class="section-title">Достижения</h2>
-          <div class="award-item">
-            <div class="award-title">Русский медвежонок</div>
-            <div class="award-meta">2013</div>
-            <p>Заняла 3 место по школе в Русском медвежонке</p>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer class="site-footer">
-      <p>Этот сайт создан с помощью Cursor и ИИ GPT‑5 за 40 минут.</p>
-    </footer>
-    <script>
-      (function(){
-        const slider = document.getElementById('slider');
-        if(!slider) return;
-        const slidesContainer = slider.querySelector('.slides');
-        const slides = Array.from(slidesContainer.querySelectorAll('.slide'));
-        const dotsContainer = document.getElementById('slider-dots');
-        let index = 0;
-        const durationMs = 3500;
-
-        function go(to){
-          index = (to + slides.length) % slides.length;
-          slides.forEach((s,i)=>{ s.classList.toggle('is-active', i===index); });
-          // Move track so the active slide is centered in view
-          slidesContainer.style.transform = 'translateX(' + (-index * 100) + '%)';
-          if(dotsContainer){
-            Array.from(dotsContainer.children).forEach((d,i)=>{
-              d.classList.toggle('is-active', i===index);
-            });
-          }
+    <style>
+        body {
+            font-family: "Inter", sans-serif;
+            background: #e5e9f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
-        // dots
-        slides.forEach((_,i)=>{
-          const b = document.createElement('button');
-          b.type = 'button';
-          b.className = 'dot' + (i===0 ? ' is-active' : '');
-          b.setAttribute('aria-label','Go to slide ' + (i+1));
-          b.addEventListener('click',()=>{ go(i); restart(); });
-          dotsContainer.appendChild(b);
+        .form-container {
+            width: 100%;
+            max-width: 420px;
+            background: #e5e9f0;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 
+                10px 10px 25px #cbd1db,
+                -10px -10px 25px #ffffff;
+            animation: fadeIn 0.6s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2e3440;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #4c566a;
+        }
+
+        input, textarea {
+            width: 100%;
+            margin: 10px 0 20px;
+            padding: 12px 15px;
+            font-size: 15px;
+            border: none;
+            border-radius: 15px;
+            outline: none;
+            background: #e5e9f0;
+            box-shadow: 
+                inset 6px 6px 10px #cbd1db,
+                inset -6px -6px 10px #ffffff;
+            transition: all 0.2s ease;
+        }
+
+        input:focus, textarea:focus {
+            box-shadow: 
+                inset 4px 4px 6px #cbd1db,
+                inset -4px -4px 6px #ffffff;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #5e81ac, #81a1c1);
+            color: white;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            box-shadow: 0 7px 20px rgba(94, 129, 172, 0.4);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(94, 129, 172, 0.55);
+        }
+
+        .status {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: 600;
+            color: #3b4252;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="form-container">
+    <h2>Свяжитесь с нами</h2>
+
+    <form id="feedback-form">
+        <label>Имя *</label>
+        <input type="text" name="user_name" required>
+
+        <label>Email *</label>
+        <input type="email" name="user_email" required>
+
+        <label>Телефон</label>
+        <input type="tel" name="user_phone">
+
+        <label>Тема *</label>
+        <input type="text" name="topic" required>
+
+        <label>Сообщение *</label>
+        <textarea name="message" rows="4" required></textarea>
+
+        <button type="submit">Отправить</button>
+        <div id="status" class="status"></div>
+    </form>
+</div>
+
+<script>
+    emailjs.init("bhk2JocEf2dV0cvs4"); // 🔑 вставь свой public key
+
+    document.getElementById("feedback-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        const status = document.getElementById("status");
+        status.textContent = "Отправка...";
+
+        emailjs.sendForm(
+            "service_an5nd4d",
+            "template_uepw1wn",
+            this
+        ).then(() => {
+            status.textContent = "Сообщение успешно отправлено!";
+            this.reset();
+        }, (error) => {
+            status.textContent = "Ошибка отправки!";
+            console.error(error);
         });
+    });
+</script>
 
-        let timer = setInterval(()=> go(index+1), durationMs);
-        function restart(){
-          clearInterval(timer);
-          timer = setInterval(()=> go(index+1), durationMs);
-        }
-
-        // Pause on hover for accessibility
-        slider.addEventListener('mouseenter', ()=> clearInterval(timer));
-        slider.addEventListener('mouseleave', restart);
-      })();
-    </script>
-  </body>
+</body>
 </html>
